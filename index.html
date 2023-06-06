@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Multas - DETRAN</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <h1>Sistema de Multas</h1>
+
+    <div class="container">
+        <div class="input-vel">
+            <label for="ivel">Velocidade</label>
+            <input type="text" name="vel" id="ivel">
+            <input class="btn" type="button" value="Consultar">
+        </div>
+        <div class="result">
+            
+        </div>
+    </div>
+
+    <script>
+        let btn = document.querySelector('.btn')
+        btn.addEventListener('click', function() {
+            let input_vel = document.querySelector('#ivel')
+            let vel = Number(input_vel.value)
+            let resultado = document.getElementsByClassName('result')[0]
+            const mediaVelocidade = 60
+            if (vel > mediaVelocidade) {
+                resultado.innerHTML = `A velocidade permitida é ${mediaVelocidade} Km/h, <strong>MULTADO</strong>!`
+            } else {
+                resultado.innerHTML = `Dirija sempre usando o cinto de segurança e beba com moderação!`
+            }
+        })
+    </script>
+    
+</body>
+</html>
